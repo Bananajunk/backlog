@@ -6,6 +6,6 @@ export default z.object({
   id: z.number(),
   name: z.string(),
   first_release_date: z.number(),
-  cover: CoverImage.optional(),
+  cover: CoverImage.default({}),
   platforms: z.array(Platform),
 });

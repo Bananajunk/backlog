@@ -1,4 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.igdb.com",
+        port: "",
+        pathname: "/igdb/image/upload/t_cover_big/**/*",
+      },
+      {
+        protocol: "https",
+        hostname: "images.igdb.com",
+        port: "",
+        pathname: "/igdb/image/upload/t_logo_med/**/*",
+      },
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

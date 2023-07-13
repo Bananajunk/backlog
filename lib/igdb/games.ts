@@ -12,7 +12,7 @@ export const getLatestReleases = async () => {
       "Client-ID": String(process.env.TWITCH_CLIENT_ID),
       Authorization: `Bearer ${auth.access_token}`,
     }),
-    body: `fields name, version_title, cover.image_id, first_release_date, platforms.slug, platforms.name, platforms.platform_logo.image_id;
+    body: `fields name, version_title, cover.id, cover.image_id, cover.width, cover.height, first_release_date, platforms.slug, platforms.name, platforms.platform_logo.image_id, platforms.platform_logo.width, platforms.platform_logo.height;
       where version_parent = null & first_release_date < ${Math.floor(
         new Date().getTime() / 1000
       )};
