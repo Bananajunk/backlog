@@ -1,5 +1,8 @@
-import "./globals.css";
 import type { Metadata } from "next";
+
+import Navbar from "~/components/Navbar";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Backlog Buster",
@@ -14,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="custom">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
