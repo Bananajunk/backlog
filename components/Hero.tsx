@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import HeroSplash from "~/images/backlog-splash.webp";
 
 const Hero = () => {
@@ -20,7 +21,13 @@ const Hero = () => {
           <p className="mb-5">
             Keeping track of the games you want to play and saving you money
           </p>
-          <button className="btn glass">Get Tracking</button>
+          <Link
+            href="/games"
+            aria-label="View games list"
+            className="btn glass"
+          >
+            Get Tracking
+          </Link>
         </div>
       </div>
     </section>
