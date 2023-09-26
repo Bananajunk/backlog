@@ -1,4 +1,4 @@
-export default async function () {
+const authenticate = async () => {
   const response = await fetch("https://id.twitch.tv/oauth2/token", {
     method: "POST",
     headers: {
@@ -12,4 +12,6 @@ export default async function () {
   });
 
   return response.json();
-}
+};
+
+export default authenticate;
