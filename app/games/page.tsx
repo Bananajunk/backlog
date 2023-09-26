@@ -1,5 +1,6 @@
 import Image from "next/image";
 import IGDB from "~/lib/igdb";
+import AddToBacklog from "./components/AddToBacklog";
 
 const Games = async () => {
   const games = await IGDB.getLatestReleases();
@@ -47,7 +48,7 @@ const Games = async () => {
                 </div>
               </td>
               <th>
-                <button className="btn btn-ghost btn-xs">+</button>
+                <AddToBacklog id={game.id} />
               </th>
             </tr>
           ))}

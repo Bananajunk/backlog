@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid())
+  backlog Backlog?
+}
+
+model Backlog {
+  id String @id @default(uuid())
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+  games Game[]
+
+  @@index([userId])
+}
+
+model Game {
+  id String @id @default(uuid())
+  resource_id Int
+  backlog Backlog @relation(fields: [backlogId], references: [id])
+  backlogId String
+  
+  @@unique([backlogId, resource_id], name: "backlog_entry")
+  @@index([backlogId])
+}
